@@ -26,6 +26,13 @@ void setup()   {
 void loop() {
     display.clearDisplay();
     game.step();
+    for (int i = 0; i < SCREEN_WIDTH; i++) {
+        for (int j = 0; j < SCREEN_HEIGHT; j++) {
+            if (game.getCell(i, j)) {
+                display.drawPixel(i, j, SH110X_WHITE);
+            }
+        }
+    }
     display.display();
-    delay(1000);
+    delay(10);
 }
