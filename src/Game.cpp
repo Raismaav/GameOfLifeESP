@@ -29,14 +29,14 @@ void Game::updateGame() {
     matrix->setCells(cells);
 }
 
-int Game::countAliveNeighbors(int xPosition, int yPosition) {
+int Game::countAliveNeighbors(int x, int yPosition) {
     int alive = 0;
     int offsets[] = {-1, 0, 1};
 
     for (int dx : offsets) {
         for (int dy : offsets) {
             if (dx == 0 && dy == 0) continue;
-            int xNeighbor = (xPosition + dx + width) % width;
+            int xNeighbor = (x + dx + width) % width;
             int yNeighbor = (yPosition + dy + height) % height;
             if (cells[xNeighbor][yNeighbor]) alive++;
         }

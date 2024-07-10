@@ -14,7 +14,7 @@ private:
     bool** buffer;
     int width, height;
 
-    int countAliveNeighbors(int xPosition, int yPosition);
+    int countAliveNeighbors(int x, int yPosition);
 
 public:
     Game(Matrix* matrix);

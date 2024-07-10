@@ -19,10 +19,11 @@ private:
 public:
     GameOfLife(int size);
     GameOfLife(int width, int height);
-    bool getCell(int posX, int posY);
+    bool getCell(int x, int y);
+    void setCell(bool alive, int x, int y);
     void initializeBoard();
     void step();
-    long getTime();
+    long getStepTime();
 };
 
 #endif // GAMEOFLIFE_H // GAMEOFLIFE_H //GAMEOFLIFEESP_GAMEOFLIFE_H

@@ -11,11 +11,11 @@
 #define OLED_RESET -1
 
 Adafruit_SH1106G display = Adafruit_SH1106G(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
-GameOfLife game = GameOfLife(SCREEN_WIDTH, SCREEN_HEIGHT);
+GameOfLife game = GameOfLife(SCREEN_WIDTH, SCREEN_WIDTH);
 
 void setup()   {
-    delay(250);
     display.begin(i2c_Address, true);
+    delay(250);
     display.clearDisplay();
     game.initializeBoard();
     display.display();
@@ -33,6 +33,15 @@ void loop() {
             }
         }
     }
+    display.setCursor(1, 1);
+    display.setTextColor(SH110X_BLACK, SH110X_WHITE);
+    display.setTextSize(1);
+
+    // use the display.print() function to print the step time
+    display.print(game.getStepTime());
+    display.print(" ms");
     display.display();
+
+
     delay(10);
 }

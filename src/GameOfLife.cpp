@@ -1,11 +1,15 @@
 #include "GameOfLife.h"
 
-GameOfLife::GameOfLife(int size) : matrix(size), game(&matrix), totalTime(0) {}
+GameOfLife::GameOfLife(int size) : matrix(size), game(&matrix) {}
 
-GameOfLife::GameOfLife(int width, int height) : matrix(width, height), game(&matrix), totalTime(0) {}
+GameOfLife::GameOfLife(int width, int height) : matrix(width, height), game(&matrix) {}
 
-bool GameOfLife::getCell(int posX, int posY) {
-    return matrix.getCell(posX, posY);
+bool GameOfLife::getCell(int x, int y) {
+    return matrix.getCell(x, y);
+}
+
+void GameOfLife::setCell(bool alive, int x, int y) {
+    matrix.setCell(alive, x, y);
 }
 
 void GameOfLife::initializeBoard() {
@@ -20,6 +24,6 @@ void GameOfLife::step() {
     totalTime = static_cast<long>(elapsed_seconds.count() * 1000);
 }
 
-long GameOfLife::getTime() {
+long GameOfLife::getStepTime() {
     return totalTime;
 }

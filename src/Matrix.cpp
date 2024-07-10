@@ -1,6 +1,6 @@
 #include "Matrix.h"
-#include <cstdlib> // Para rand() y srand()
-#include <ctime> // Para time()
+#include <cstdlib>
+#include <ctime>
 
 Matrix::Matrix(int size) : Matrix(size, size) {}
 
@@ -30,12 +30,12 @@ void Matrix::fillRandomly() {
     }
 }
 
-bool Matrix::getCell(int posX, int posY) const {
-    return cells[posX][posY];
+bool Matrix::getCell(int x, int y) const {
+    return cells[x][y];
 }
 
-void Matrix::setCell(bool alive, int posX, int posY) {
-    cells[posX][posY] = alive;
+void Matrix::setCell(bool alive, int x, int y) {
+    cells[x][y] = alive;
 }
 
 bool** Matrix::getCells() const {
